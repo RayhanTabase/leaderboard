@@ -40,7 +40,7 @@ async function addScore(user,score){
   })
   let response = await data.json()
   let result = await response.result
-  if (result.includes("Leaderboard score created correctly")) displayScore({score:score,user:user})
+  // if (result.includes("Leaderboard score created correctly")) displayScore({score:score,user:user})
 }
 
 displayAllScores();
