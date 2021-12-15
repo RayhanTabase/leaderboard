@@ -1,46 +1,30 @@
 import './style.css';
+import {displayAllScores,displayError, displayScore} from './display.js'
+import { addScore } from './apiScores.js';
 
-const scoresTable = document.querySelector('#tableOfScores');
 
-const endpoint = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games"
-const gameId = "MmPje8nXd7xg0GvcGIEk"
+const newScoreForm = document.querySelector('#newScoreForm')
+const refreshButton = document.querySelector('#refreshButton')
 
-async function getScores(){
-  let data =  await fetch(`${endpoint}/${gameId}/scores`)
-  let response = await data.json()
-  let results = await response.result
-  return results
-}
+// Refresh the scores list
+refreshButton.addEventListener('click', ()=>{
+  displayAllScores()
+})
 
-function displayScore(score) {
-  const tableRow = document.createElement('tr');
-  tableRow.innerHTML = `<td> ${score.user}: ${score.score}</td>`;
-  scoresTable.appendChild(tableRow);
-}
-
-async function displayAllScores() {
-  let scores = await getScores()
-  scores.forEach((score) => {
-    displayScore(score)  
-  });
-};
-
-async function addScore(user,score){
-  let data = await fetch(`${endpoint}/${gameId}/scores`,
-  {
-    method:'POST',
-    body: JSON.stringify({
-        'user' : user,
-        'score' : score
-    }),
-    mode: 'cors',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  })
-  let response = await data.json()
-  let result = await response.result
-  // if (result.includes("Leaderboard score created correctly")) displayScore({score:score,user:user})
-}
+// Submit a new score
+newScoreForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  displayError(false)
+  const data = new FormData(newScoreForm);
+  let user = data.get('user')
+  let score = data.get('score')
+  if(user.trim() && score.trim()){
+    let newScore = addScore(user,score)
+    newScore ? displayScore(newScore) : false
+    newScoreForm.reset()
+  }
+  else displayError(true)
+})
 
 displayAllScores();
+

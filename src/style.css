@@ -41,3 +41,9 @@ button {
 table {
   border: 4px solid black;
 }
+
+.errorMessage {
+  display: none;
+  color: red;
+}
+/*# sourceMappingURL=style.css.map */
