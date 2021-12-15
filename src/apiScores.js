@@ -1,32 +1,31 @@
-const endpoint = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games"
-const gameId = "MmPje8nXd7xg0GvcGIEk"
+const endpoint = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games';
+const gameId = 'MmPje8nXd7xg0GvcGIEk';
 
 // Get all scores from api
-async function getScores(){
-  let data =  await fetch(`${endpoint}/${gameId}/scores`)
-  let response = await data.json()
-  let results = await response.result
-  return results
+async function getScores() {
+  const data = await fetch(`${endpoint}/${gameId}/scores`);
+  const response = await data.json();
+  const results = await response.result;
+  return results;
 }
 
 // Add score to api
-async function addScore(user,score){
-  score = parseInt(score)
-  let data = await fetch(`${endpoint}/${gameId}/scores`,
-  {
-    method:'POST',
-    body: JSON.stringify({
-        'user' : user,
-        'score' : score
-    }),
-    mode: 'cors',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  })
-  let response = await data.json()
-  let result = await response.result
-  if (result.includes("Leaderboard score created correctly")) ({user:user,score:score})
+async function addScore(user, score) {
+  const data = await fetch(`${endpoint}/${gameId}/scores`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        user,
+        score,
+      }),
+      mode: 'cors',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+  const response = await data.json();
+  const result = await response.result;
+  return result;
 }
 
-export {getScores,addScore}
+export { getScores, addScore };
