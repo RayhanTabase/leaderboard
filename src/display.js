@@ -11,11 +11,13 @@ function displayScore(score) {
 
 // Display all the scores on the page
 async function displayAllScores() {
+  loadingContent(true)
   scoresTable.innerHTML = '';
   const scores = await getScores();
   scores.forEach((score) => {
     displayScore(score);
   });
+  loadingContent(false)
 }
 
 // Display error message on incorrect form
@@ -38,6 +40,16 @@ function displayNotification(message) {
   });
 }
 
+// Display loading icon
+function loadingContent(show) {
+  const loadingContent = document.querySelector("#loadingContent")
+  if(show){
+      loadingContent.style.display ="flex";
+      return;
+  }
+  loadingContent.style.display ="none";
+}
+
 export {
-  displayScore, displayAllScores, displayError, displayNotification,
+  displayScore, displayAllScores, displayError, displayNotification
 };

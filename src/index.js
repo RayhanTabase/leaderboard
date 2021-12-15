@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  displayAllScores, displayError, displayScore, displayNotification,
+  displayAllScores, displayError, displayScore, displayNotification
 } from './display.js';
 import { addScore } from './apiScores.js';
 
