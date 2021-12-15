@@ -2,7 +2,7 @@
   "name": "leaderboard",
   "version": "1.0.0",
   "description": "A JavaScript project for a Leaderboard list app, using webpack and ES6 features",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",

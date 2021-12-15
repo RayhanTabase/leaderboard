@@ -15,7 +15,7 @@ button {
 #pageHeader {
   text-align: center;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 #mainContent {
@@ -40,4 +40,50 @@ button {
 
 table {
   border: 4px solid black;
+}
+
+#notificationMessage {
+  margin-bottom: 3em;
+}
+
+#notificationMessage .fadeMessage {
+  -webkit-animation: fademessage;
+  animation: fadeMessage;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  opacity: 0;
+  text-align: center;
+}
+
+@-webkit-keyframes fadeMessage {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeMessage {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.errorMessage {
+  display: none;
+  color: red;
 }

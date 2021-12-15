@@ -1,14 +1,30 @@
 import './style.css';
-import scores from './scores.js';
+import {
+  displayAllScores, displayError, displayScore, displayNotification,
+} from './display.js';
+import { addScore } from './apiScores.js';
 
-const scoresTable = document.querySelector('#tableOfScores');
+const newScoreForm = document.querySelector('#newScoreForm');
+const refreshButton = document.querySelector('#refreshButton');
 
-const displayScores = () => {
-  scores.forEach((score) => {
-    const tableRow = document.createElement('tr');
-    tableRow.innerHTML = `<td> ${score.name}: ${score.score}</td>`;
-    scoresTable.appendChild(tableRow);
-  });
-};
+// Refresh the scores list
+refreshButton.addEventListener('click', () => {
+  displayAllScores();
+});
 
-displayScores();
+// Submit a new score
+newScoreForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  displayError(false);
+  const data = new FormData(newScoreForm);
+  const user = data.get('user');
+  const score = data.get('score');
+  if (user.trim() && score.trim()) {
+    const message = await addScore(user, score);
+    displayNotification(message);
+    displayScore({ user, score });
+    newScoreForm.reset();
+  } else displayError(true);
+});
+
+displayAllScores();
