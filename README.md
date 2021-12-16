@@ -2,6 +2,9 @@
 # leaderboard
  A JavaScript project for a Leaderboard list app, using webpack and ES6 features. The app displays a the 10 highest scores in a game.
 
+## Screenshots
+
+![screenshot](./projectImages/projectImage.jpeg)
 
 ## Built With
 
