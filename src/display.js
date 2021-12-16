@@ -2,6 +2,16 @@ import { getScores } from './apiScores.js';
 
 const scoresTable = document.querySelector('#tableOfScores');
 
+// Display loading icon
+function loadingContent(show) {
+  const loadingContent = document.querySelector('#loadingContent');
+  if (show) {
+    loadingContent.style.display = 'flex';
+    return;
+  }
+  loadingContent.style.display = 'none';
+}
+
 // Display a score on the page
 function displayScore(score) {
   const tableRow = document.createElement('tr');
@@ -11,13 +21,13 @@ function displayScore(score) {
 
 // Display all the scores on the page
 async function displayAllScores() {
-  loadingContent(true)
+  loadingContent(true);
   scoresTable.innerHTML = '';
   const scores = await getScores();
   scores.forEach((score) => {
     displayScore(score);
   });
-  loadingContent(false)
+  loadingContent(false);
 }
 
 // Display error message on incorrect form
@@ -40,16 +50,6 @@ function displayNotification(message) {
   });
 }
 
-// Display loading icon
-function loadingContent(show) {
-  const loadingContent = document.querySelector("#loadingContent")
-  if(show){
-      loadingContent.style.display ="flex";
-      return;
-  }
-  loadingContent.style.display ="none";
-}
-
 export {
-  displayScore, displayAllScores, displayError, displayNotification
+  displayScore, displayAllScores, displayError, displayNotification,
 };

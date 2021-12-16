@@ -26,20 +26,20 @@
     <h1>Leaderboard</h1>
   </div>
 
-  <div id="notificationMessage"></div>
   <main id="mainContent" class="d-flex justify-content-center">
     <div id="scoresContent">
       <div id="recentScoresHeader" class="d-flex mb-5 justify-content-between">
-        <h2>Recent scores</h2>
+        <h2>High scores</h2>
         <button type="button" id="refreshButton" class="btn btn-info">Refresh</button>
       </div>
 
-      <table class="table table-striped table-borderless">
-        <div id="loadingContent"> 
-          <div class="fa-3x">
-              <i class="fas fa-spinner fa-spin"></i>
-          </div>
+      <div id="loadingContent"> 
+        <div class="fa-3x">
+            <i class="fas fa-spinner fa-spin"></i>
         </div>
+      </div>
+
+      <table class="table table-striped table-borderless">
         <tbody  id="tableOfScores">
         </tbody>
       </table>
@@ -47,7 +47,7 @@
 
     <div id="addScoreContent">
       <form class="d-flex flex-column" id="newScoreForm">
-        <h2 class="mb-5">Add your score</h2>
+        <h2 class="mb-5 addYourScore">Add your score</h2>
         <div class="mb-3">
           <input class="form-control" type="text" placeholder="Your name" name="user" required>
         </div>
@@ -60,6 +60,7 @@
         <div class="errorMessage">
           <p>Please input a name and a score</p>
         </div>
+        <div id="notificationMessage"></div>
       </form>
     </div>
   </main>
