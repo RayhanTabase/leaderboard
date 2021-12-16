@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  displayAllScores, displayError, displayScore, displayNotification,
+  displayAllScores, displayError, displayNotification,
 } from './display.js';
 import { addScore } from './apiScores.js';
 
@@ -22,8 +22,8 @@ newScoreForm.addEventListener('submit', async (e) => {
   if (user.trim() && score.trim()) {
     const message = await addScore(user, score);
     displayNotification(message);
-    displayScore({ user, score });
     newScoreForm.reset();
+    displayAllScores();
   } else displayError(true);
 });
 

@@ -1,21 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@600;700&family=Lato:wght@300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   font-weight: 600;
+  font-family: "Gluten", cursive;
+}
+
+body {
+  background: linear-gradient(rgb(218, 215, 215), rgb(236, 236, 236), rgb(177, 177, 177));
+  min-height: 100vh;
 }
 
 h1 {
   font-size: 3rem;
 }
 
-button {
-  padding: 0.7em;
+#pageHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
 }
 
-#pageHeader {
+#pageHeader h1 {
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1.5em;
+  animation-name: rotateLeftRight;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes rotateLeftRight {
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+#pageHeader h1:hover {
+  animation: none;
 }
 
 #mainContent {
@@ -34,7 +67,26 @@ button {
     width: 37%;
     max-width: 37%;
     min-width: 37%;
-    overflow: hidden;
+
+    .addYourScore {
+      animation-name: blink;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
   }
 }
 
@@ -43,10 +95,10 @@ table {
 }
 
 #notificationMessage {
-  margin-bottom: 3em;
+  margin-top: 2em;
 
   .fadeMessage {
-    animation: fadeMessage;
+    animation-name: fadeMessage;
     animation-duration: 3s;
     opacity: 0;
     text-align: center;
@@ -70,4 +122,13 @@ table {
 .errorMessage {
   display: none;
   color: red;
+  margin-top: 2em;
+}
+
+#loadingContent {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }

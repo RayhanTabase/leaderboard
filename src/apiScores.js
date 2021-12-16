@@ -6,7 +6,8 @@ async function getScores() {
   const data = await fetch(`${endpoint}/${gameId}/scores`);
   const response = await data.json();
   const results = await response.result;
-  return results;
+  const sortedResults = await results.sort((score1, score2) => score2.score - score1.score);
+  return sortedResults.slice(0, 10);
 }
 
 // Add score to api
