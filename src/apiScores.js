@@ -2,16 +2,16 @@ const endpoint = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api
 const gameId = 'MmPje8nXd7xg0GvcGIEk';
 
 // Get all scores from api
-async function getScores() {
+const getScores = async () => {
   const data = await fetch(`${endpoint}/${gameId}/scores`);
   const response = await data.json();
   const results = await response.result;
   const sortedResults = await results.sort((score1, score2) => score2.score - score1.score);
   return sortedResults.slice(0, 10);
-}
+};
 
 // Add score to api
-async function addScore(user, score) {
+const addScore = async (user, score) => {
   const data = await fetch(`${endpoint}/${gameId}/scores`,
     {
       method: 'POST',
@@ -27,6 +27,6 @@ async function addScore(user, score) {
   const response = await data.json();
   const result = await response.result;
   return result;
-}
+};
 
 export { getScores, addScore };
