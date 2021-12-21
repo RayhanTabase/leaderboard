@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@600;700&family=Lato:wght@300&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +7,7 @@
 }
 
 body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#dad7d7), color-stop(#ececec), to(#b1b1b1));
   background: linear-gradient(#dad7d7, #ececec, #b1b1b1);
   min-height: 100vh;
 }
@@ -16,16 +16,22 @@ h1 {
   font-size: 3rem;
 }
 
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
 #pageHeader {
   width: 100%;
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 1em;
 }
 
@@ -33,51 +39,47 @@ h1 {
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1.5em;
-  -webkit-animation-name: rotateleftright;
-  animation-name: rotateLeftRight;
+  -webkit-animation-name: rotateLeftRight;
+          animation-name: rotateLeftRight;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 @-webkit-keyframes rotateLeftRight {
   25% {
     -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
+            transform: rotate(-10deg);
   }
-
   50% {
     -webkit-transform: rotate(10deg);
-    transform: rotate(10deg);
+            transform: rotate(10deg);
   }
-
   100% {
     -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform: rotate(0);
   }
 }
 
 @keyframes rotateLeftRight {
   25% {
     -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
+            transform: rotate(-10deg);
   }
-
   50% {
     -webkit-transform: rotate(10deg);
-    transform: rotate(10deg);
+            transform: rotate(10deg);
   }
-
   100% {
     -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform: rotate(0);
   }
 }
 
 #pageHeader h1:hover {
   -webkit-animation: none;
-  animation: none;
+          animation: none;
 }
 
 #mainContent {
@@ -91,6 +93,19 @@ h1 {
   max-width: 45%;
   min-width: 45%;
   margin-right: 10%;
+  overflow: hidden;
+}
+
+#mainContent #scoresContent #recentScoresHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 2em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #mainContent #addScoreContent {
@@ -101,22 +116,20 @@ h1 {
 
 #mainContent #addScoreContent .addYourScore {
   -webkit-animation-name: blink;
-  animation-name: blink;
+          animation-name: blink;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 @-webkit-keyframes blink {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -126,11 +139,9 @@ h1 {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -145,10 +156,10 @@ table {
 }
 
 #notificationMessage .fadeMessage {
-  -webkit-animation-name: fademessage;
-  animation-name: fadeMessage;
+  -webkit-animation-name: fadeMessage;
+          animation-name: fadeMessage;
   -webkit-animation-duration: 3s;
-  animation-duration: 3s;
+          animation-duration: 3s;
   opacity: 0;
   text-align: center;
 }
@@ -157,11 +168,9 @@ table {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -171,11 +180,9 @@ table {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -190,11 +197,21 @@ table {
 #loadingContent {
   display: none;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
 }
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2, h3 {
+    font-size: 1.5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

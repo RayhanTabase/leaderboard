@@ -16,6 +16,11 @@ h1 {
   font-size: 3rem;
 }
 
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
 #pageHeader {
   width: 100%;
   display: flex;
@@ -61,6 +66,14 @@ h1 {
     max-width: 45%;
     min-width: 45%;
     margin-right: 10%;
+    overflow: hidden;
+
+    #recentScoresHeader {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+      justify-content: space-between;
+    }
   }
 
   #addScoreContent {
@@ -131,4 +144,14 @@ table {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+
+@media only screen and (max-width: 767px) { 
+  h1{
+    font-size: 1.5rem
+  }
+  h2,h3 {
+    font-size: 1.5rem;
+  }
 }

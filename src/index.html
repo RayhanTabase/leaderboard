@@ -28,7 +28,7 @@
 
   <main id="mainContent" class="d-flex justify-content-center">
     <div id="scoresContent">
-      <div id="recentScoresHeader" class="d-flex mb-5 justify-content-between">
+      <div id="recentScoresHeader">
         <h2>High scores</h2>
         <button type="button" id="refreshButton" class="btn btn-info">Refresh</button>
       </div>
@@ -49,10 +49,10 @@
       <form class="d-flex flex-column" id="newScoreForm">
         <h2 class="mb-5 addYourScore">Add your score</h2>
         <div class="mb-3">
-          <input class="form-control" type="text" placeholder="Your name" name="user" required>
+          <input class="form-control" type="text" placeholder="Your name" name="user" required maxlength="20">
         </div>
         <div class="mb-3">
-          <input class="form-control" type="number" min="1" placeholder="Your score" name="score" required>
+          <input class="form-control" type="number" min="1" max="100000000" placeholder="Your score" name="score" required >
         </div>
         <div class="align-self-end ">
           <button type="submit" class="btn btn-success"> Submit </button>
