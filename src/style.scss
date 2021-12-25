@@ -19,6 +19,7 @@ h1 {
 table {
   table-layout: fixed;
   word-wrap: break-word;
+  border: 4px solid black;
 }
 
 #pageHeader {
@@ -103,10 +104,6 @@ table {
   }
 }
 
-table {
-  border: 4px solid black;
-}
-
 #notificationMessage {
   margin-top: 2em;
 
@@ -146,12 +143,13 @@ table {
   height: 100%;
 }
 
-
-@media only screen and (max-width: 767px) { 
-  h1{
-    font-size: 1.5rem
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
   }
-  h2,h3 {
+
+  h2,
+  h3 {
     font-size: 1.5rem;
   }
 }

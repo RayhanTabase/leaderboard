@@ -15,8 +15,7 @@ const loadingContent = (show) => {
 // Display a score on the page
 const displayScore = (score) => {
   const tableRow = document.createElement('tr');
-  console.log(score.user.slice(0,10))
-  tableRow.innerHTML = `<td> ${score.user.slice(0,15)}: ${score.score}</td>`;
+  tableRow.innerHTML = `<td> ${score.user.slice(0, 15)}: ${score.score}</td>`;
   scoresTable.appendChild(tableRow);
 };
 
