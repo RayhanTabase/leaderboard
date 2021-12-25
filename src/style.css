@@ -16,6 +16,12 @@ h1 {
   font-size: 3rem;
 }
 
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+  border: 4px solid black;
+}
+
 #pageHeader {
   width: 100%;
   display: -webkit-box;
@@ -91,6 +97,18 @@ h1 {
   max-width: 45%;
   min-width: 45%;
   margin-right: 10%;
+  overflow: hidden;
+}
+
+#mainContent #scoresContent #recentScoresHeader {
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 #mainContent #addScoreContent {
@@ -134,10 +152,6 @@ h1 {
   100% {
     opacity: 0;
   }
-}
-
-table {
-  border: 4px solid black;
 }
 
 #notificationMessage {
@@ -197,4 +211,15 @@ table {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.5rem;
+  }
 }
