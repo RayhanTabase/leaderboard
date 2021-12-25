@@ -6,6 +6,9 @@
 
 ![screenshot](./projectImages/projectImage.jpeg)
 
+## Live Version
+[Leaderboard](https://rayhantabase.github.io/leaderboard/)
+
 ## Built With
 
 - HTML, JavaScript(ES6), CSS
